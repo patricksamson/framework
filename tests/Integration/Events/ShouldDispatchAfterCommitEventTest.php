@@ -3,12 +3,15 @@
 namespace Illuminate\Tests\Integration\Events;
 
 use Illuminate\Contracts\Events\ShouldDispatchAfterCommit;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Orchestra\Testbench\TestCase;
 
 class ShouldDispatchAfterCommitEventTest extends TestCase
 {
+    use RefreshDatabase;
+    
     protected function tearDown(): void
     {
         TransactionUnawareTestEvent::$ran = false;
